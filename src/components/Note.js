@@ -2,11 +2,11 @@ import React from 'react';
 
 class Note extends React.Component {
   render() {
-    return {
+    return (
       <div className="note-container">
         Note Component
       </div>
-    }
+    )
   }
 }
 
