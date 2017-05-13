@@ -16,7 +16,7 @@ class Note extends React.Component {
 
     return (
       <div className="note-container">
-        <form className="note-form" onSubmit={(e) => this.onSubmit(e)}>
+        <form className="note-container note-form" onSubmit={(e) => this.onSubmit(e)}>
           <input
             className="note-title-input"
             type="text"
