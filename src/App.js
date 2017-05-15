@@ -62,11 +62,17 @@ class App extends Component {
   }
 
   closeTagForm = () => {
-    this.setState({ newTag: false })
+    this.setState({ newTag: false });
   }
 
   submitTag = (data, noteId) => {
     axios.post(urlFor(`notes/${noteId}/tags`), data)
+    .then((res) => this.getNote(noteId))
+    .catch((err) => console.log(err.response.data));
+  }
+
+  deleteTag = (noteId, id) => {
+    axios.delete(urlFor(`/tags/${id}`))
     .then((res) => this.getNote(noteId))
     .catch((err) => console.log(err.response.data));
   }
@@ -86,6 +92,7 @@ class App extends Component {
             showTagForm={this.showTagForm}
             closeTagForm={this.closeTagForm}
             submitTag={this.submitTag}
+            deleteTag={this.deleteTag}
           />
           :
           <List
